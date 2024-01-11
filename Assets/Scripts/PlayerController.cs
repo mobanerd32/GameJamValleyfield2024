@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] private PlayerInfo infoDuJoueur; 
+
+    [SerializeField] private Weapon arme;
      //SerializeField est utiliser pour manipuler les variables dans l'inspecteur
     [SerializeField] private float _vitesse = 1f;
     [SerializeField] private float _forceSaut = 5f; //Il faut une référence a un autre gameobject pour y accéder
-    private float timerDegat = 3f;
+    
 
     //les variable bool permette de vérifier la condition de notre gameobject
     private bool _isGrounded;
@@ -51,8 +53,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]  private Animator _ArmeAnimator;
 
+    //POWER UP
+    private float TimerPowerUp = 5f;
+    private bool dmgUP = false;
 
-    
+    //Damage
+
+    private float timerDegat = 3f;
+    private bool Invincible;
+    [SerializeField] private GameObject SangEffet;
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -67,14 +76,17 @@ public class PlayerController : MonoBehaviour
         Bouge();
         Block();
 
-        /*if (_SangEffet.activeSelf)
-        {
+        if(dmgUP == true){
+            TimerPowerUp -= Time.deltaTime;
+        }
+
+        if(Invincible == true){
             timerDegat -= Time.deltaTime;
-            if (timerDegat <= 0f)
-            {
+            if(timerDegat <= 0){
+                Invincible = false;
                 desactiveSang();
             }
-        }*/
+        }
     }
 
     public void OnPause(InputValue value){
@@ -132,6 +144,31 @@ public class PlayerController : MonoBehaviour
             }
             Destroy(other.gameObject);
         }
+        else if(other.transform.tag == "Power"){
+            TimerPowerUp = 5f;
+            if(dmgUP == false){
+                arme.dmg += 2;
+                dmgUP = true;
+            }
+            else{
+                TimerPowerUp = 5f;
+            }
+            if(TimerPowerUp <= 0){
+                dmgUP = false;
+                arme.dmg -= 2;
+            }
+            Destroy(other.gameObject);
+        }
+        else if(other.transform.tag == "Money"){
+            infoDuJoueur.adepte += 3;
+            Destroy(other.gameObject);
+        }
+        else if(other.transform.tag == "Ennemi" && Invincible == false){
+            infoDuJoueur.hp -= 15;
+            Invincible = true;
+            ActiveSang();
+            timerDegat = 3f;
+        }
         /*else if(other.transform.tag == "Savon"){
             if(_mainvide == true){
                 other.gameObject.SetActive(false);
@@ -148,10 +185,6 @@ public class PlayerController : MonoBehaviour
             other.gameObject.GetComponent<Canard>().EstHuile = false;
             _audioSource.clip = _LaverCanard;
             _audioSource.Play();
-        }*/
-        /*else if(other.transform.tag == "Monster"){
-            _Degat.Play();
-            _SangEffet.SetActive(true);
         }*/
     }
     
@@ -239,10 +272,13 @@ public class PlayerController : MonoBehaviour
         return rotationFinale;
     }
 
-    /*private void desactiveSang(){
-        _SangEffet.SetActive(false);
-        timerDegat = 3f;
-    }*/
+    private void ActiveSang(){
+        SangEffet.SetActive(true);
+    }
+
+    private void desactiveSang(){
+        SangEffet.SetActive(false);
+    }
 
     /*void JouerBruitsDePas()
     {

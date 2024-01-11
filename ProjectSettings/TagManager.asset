@@ -9,6 +9,7 @@ TagManager:
   - Ennemi
   - Health
   - Power
+  - Money
   layers:
   - Default
   - TransparentFX

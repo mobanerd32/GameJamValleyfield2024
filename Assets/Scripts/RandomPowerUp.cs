@@ -16,7 +16,7 @@ public class RandomPowerUp : MonoBehaviour
     void SpawnPowerUp()
     {
 
-        int rnd = Random.Range(0,2);
+        int rnd = Random.Range(0,3);
 
         //update the x & z values depending on the specific boundaries of your scene
         Vector3 randomPosition = new Vector3(Random.Range(-50, 50), 0.8f, Random.Range(-50, 50));
