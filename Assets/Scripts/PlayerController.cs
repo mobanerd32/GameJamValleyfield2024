@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
     private float _compteurDeTempsBruitsPas = 0.0f;
 
 
-    [Range(-45, -15)]
-    public int minAngle = -30;
-    [Range(30, 80)]
+    [Range(-90, -15)]
+    public int minAngle = -90;
+    [Range(30, 90)]
     public int maxAngle = 45;
     [Range(10, 100)]
     [SerializeField] private float _sensibiliteSouris;
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
     private float timerDegat = 3f;
     private bool Invincible;
     [SerializeField] private GameObject SangEffet;
+
+    [SerializeField] private StatueUpgrade Statue; 
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -341,6 +343,14 @@ public class PlayerController : MonoBehaviour
             _ArmeAnimator.SetBool("Blocking",false);
             infoDuJoueur.ResistanceStatus = false;
         }
+    }
+
+    void OnUpgrade(){
+        Statue.Upgrade();
+    }
+
+    void OnRepair(){
+        Statue.RepairAll();
     }
 
 }

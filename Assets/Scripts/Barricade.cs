@@ -70,7 +70,7 @@ public class Barricade : MonoBehaviour
         }
     }
 
-    private void Repair(){
+    public void Repair(){
         collider = GetComponent<Collider>();
         foreach (var Barricade in NiveauDeDMG)
         {
