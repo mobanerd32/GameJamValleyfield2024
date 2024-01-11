@@ -7,7 +7,9 @@ public class Barricade : MonoBehaviour
 
     [SerializeField] private GameObject[] NiveauDeDMG;
 
-    [SerializeField] private int hp;
+    [SerializeField] private int Starthp;
+
+    private int hp;
 
     [SerializeField] private int hpDamaged;
 
@@ -28,6 +30,7 @@ public class Barricade : MonoBehaviour
         }
         NiveauDeDMG[0].SetActive(true);
         ActivatedModelIndex = 0;
+        hp = Starthp;
     }
 
     // Update is called once per frame
@@ -65,5 +68,17 @@ public class Barricade : MonoBehaviour
                 collider.enabled = false;
             }
         }
+    }
+
+    private void Repair(){
+        collider = GetComponent<Collider>();
+        foreach (var Barricade in NiveauDeDMG)
+        {
+            Barricade.SetActive(false);
+        }
+        NiveauDeDMG[0].SetActive(true);
+        ActivatedModelIndex = 0;
+        hp = Starthp;
+        collider.enabled = true;
     }
 }

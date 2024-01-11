@@ -68,6 +68,9 @@ public class PlayerController : MonoBehaviour
     {
        _rb = GetComponent<Rigidbody>();
        //_audioSource = GetComponent<AudioSource>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     //TOUJOURS UTILISER FIXEDUPDATE AVEC LA PHYSIQUE
