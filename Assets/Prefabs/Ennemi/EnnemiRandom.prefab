@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalScale.x
@@ -26,15 +26,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.3479304
+      value: 3.4722404
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: -1.9549313
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.505983
+      value: 58.116875
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalRotation.w
@@ -159,7 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laCible: {fileID: 0}
   _agent: {fileID: 1061136954534962644}
-  listeDeCible: []
+  listeDeCible:
+  - {fileID: 0}
+  - {fileID: 0}
   hp: 3
 --- !u!54 &7395289003618167095
 Rigidbody:

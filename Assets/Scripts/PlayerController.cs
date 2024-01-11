@@ -65,6 +65,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private StatueUpgrade Statue; 
 
+    private int Weaponlvl = 0;
+
+    [SerializeField] private GameObject[] WeaponSkin;
+
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
     {
@@ -73,6 +77,12 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        foreach (var weapon in WeaponSkin)
+        {
+            weapon.SetActive(false);
+        }
+        WeaponSkin[0].SetActive(true);
     }
 
     //TOUJOURS UTILISER FIXEDUPDATE AVEC LA PHYSIQUE
@@ -351,6 +361,15 @@ public class PlayerController : MonoBehaviour
 
     void OnRepair(){
         Statue.RepairAll();
+    }
+
+    public void UpgradeWeapon(){
+        if(Weaponlvl<2){
+            WeaponSkin[Weaponlvl].SetActive(false);
+            WeaponSkin[Weaponlvl + 1].SetActive(true);
+            Weaponlvl++;
+            arme.dmg++;
+        } 
     }
 
 }
