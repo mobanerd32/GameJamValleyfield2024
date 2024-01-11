@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private bool _doubleJump;
 
+    private bool _blocking;
+
     // les variables float permette de manipuler des chiffre et peuvent etre utilisé avec les Vector3
     private float _mouvementHorizontal;
     private float _mouvementAvant;
@@ -45,6 +47,8 @@ public class PlayerController : MonoBehaviour
     [Range(10, 100)]
     [SerializeField] private float _sensibiliteSouris;
 
+    [SerializeField]  private Animator _ArmeAnimator;
+
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
     {
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate() 
     {
         Bouge();
+        Block();
 
         /*if (_SangEffet.activeSelf)
         {
@@ -257,6 +262,31 @@ public class PlayerController : MonoBehaviour
 
         
     }*/
+
+
+    void OnFire(InputValue value){
+         _ArmeAnimator.SetTrigger("Attaque");
+    }
+
+    void OnBlock(InputValue value){
+        if(value.isPressed)
+        {
+            _blocking = true;
+        }
+        else
+        {
+            _blocking = false;
+        }
+    }
+
+    private void Block(){
+        if(_blocking == true){
+            _ArmeAnimator.SetBool("Blocking",true);
+        }
+        else{
+            _ArmeAnimator.SetBool("Blocking",false);
+        }
+    }
 
 }
 
