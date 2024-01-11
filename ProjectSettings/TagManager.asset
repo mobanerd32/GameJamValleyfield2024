@@ -7,6 +7,8 @@ TagManager:
   - Sol
   - Arme
   - Ennemi
+  - Health
+  - Power
   layers:
   - Default
   - TransparentFX

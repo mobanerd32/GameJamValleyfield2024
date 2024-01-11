@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
+    [SerializeField] private PlayerInfo infoDuJoueur; 
      //SerializeField est utiliser pour manipuler les variables dans l'inspecteur
     [SerializeField] private float _vitesse = 1f;
     [SerializeField] private float _forceSaut = 5f; //Il faut une référence a un autre gameobject pour y accéder
@@ -48,6 +50,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _sensibiliteSouris;
 
     [SerializeField]  private Animator _ArmeAnimator;
+
+
+    
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -117,6 +122,15 @@ public class PlayerController : MonoBehaviour
         {
             _isGrounded = true;
             _doubleJump = true;
+        }
+        else if(other.transform.tag == "Health"){
+            if(infoDuJoueur.hp + 10 > 100){
+                infoDuJoueur.hp = 100;
+            }
+            else{
+                infoDuJoueur.hp += 10;
+            }
+            Destroy(other.gameObject);
         }
         /*else if(other.transform.tag == "Savon"){
             if(_mainvide == true){
@@ -282,9 +296,11 @@ public class PlayerController : MonoBehaviour
     private void Block(){
         if(_blocking == true){
             _ArmeAnimator.SetBool("Blocking",true);
+            infoDuJoueur.ResistanceStatus = true;
         }
         else{
             _ArmeAnimator.SetBool("Blocking",false);
+            infoDuJoueur.ResistanceStatus = false;
         }
     }
 

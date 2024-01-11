@@ -5,7 +5,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
 
+    public int dmg = 1;
 
+    [SerializeField] private PlayerInfo infoJoueur;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,9 @@ public class Weapon : MonoBehaviour
     /// <param name="other">The other Collider involved in this collision.</param>
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Ennemi")
-            Debug.Log("ouch");
+        if(other.transform.tag == "Ennemi"){
+            infoJoueur.adepte++;
+        }
+            
     }
 }
