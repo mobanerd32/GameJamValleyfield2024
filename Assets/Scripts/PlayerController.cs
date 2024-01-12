@@ -89,6 +89,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject particleSystem;
 
+    [SerializeField] private GameObject PanelPause;
+
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
     {
@@ -423,6 +425,18 @@ public class PlayerController : MonoBehaviour
         if(TextInteract.activeInHierarchy == true){
             particleSystem.SetActive(true);
         }
+    }
+
+    void OnPause(){
+        PanelPause.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void Unpause(){
+        PanelPause.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 }

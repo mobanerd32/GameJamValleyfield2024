@@ -15,7 +15,7 @@ public class DayNight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rot = new Vector3(0,1,0) * Time.deltaTime;
+        Vector3 rot = new Vector3(1,0,0) * Time.deltaTime;
         transform.Rotate(rot);
     }
 }
