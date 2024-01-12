@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject[] WeaponSkin;
 
     [SerializeField] private GameObject PannelUpgrade;
+    [SerializeField] private GameObject PanelPause;
 
     [SerializeField] private TMP_Text nbAdepte;
 
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
     private float TimerParticle;
 
-    [SerializeField] private GameObject PanelPause;
+    
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -442,19 +443,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnPause(){
-        PanelPause.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        _sensibiliteSouris = 0;
+    void OnArret(){
+        Debug.Log("pause");
+        if(PanelPause.activeInHierarchy == false){
+            PanelPause.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if(PanelPause.activeInHierarchy == true){
+            PanelPause.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        
     }
-
-    public void Unpause(){
-        PanelPause.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        _sensibiliteSouris = 25;
-    }
-
 }
 

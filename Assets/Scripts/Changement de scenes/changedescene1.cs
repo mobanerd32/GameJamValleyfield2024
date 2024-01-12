@@ -25,4 +25,8 @@ public class changedescene1 : MonoBehaviour
     public void ChangeScene(string scene){
         SceneManager.LoadScene(scene);
     }
+
+    public void Quitter(){
+        Application.Quit();
+    }
 }
