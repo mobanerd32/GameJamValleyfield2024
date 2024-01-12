@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Statue : MonoBehaviour
 {
@@ -41,6 +42,9 @@ public class Statue : MonoBehaviour
             Invincible = true;
             hp--;
             hpTextStatue.text = "Pv Statue : " + hp;
+            if(hp <= 0){
+                SceneManager.LoadScene("GameOver");
+            }
         }
     }
 }

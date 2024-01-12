@@ -25,7 +25,7 @@ public class PlayerInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        adepteCounter.text = "Adepte : " + adepte;
+        adepteCounter.text = adepte.ToString();
         hpText.text = "HP : " + hp;
     }
 

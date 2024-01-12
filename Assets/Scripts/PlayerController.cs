@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private AudioClip[] _listeBruitsPas;
     [SerializeField] private AudioClip _sonSaut;
+    [SerializeField] private AudioClip _sonHurt;
 
     [SerializeField] private AudioSource _audioSource;
 
@@ -205,6 +206,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.transform.tag == "Ennemi" && Invincible == false){
             infoDuJoueur.hp -= 15;
+            _audioSource.clip = _sonHurt;
+            _audioSource.Play();
             Invincible = true;
             ActiveSang();
             timerDegat = 3f;

@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UI-choix.unity
     guid: f8746dfde2874b24bbe52c220d4bf6c4
-  - enabled: 0
-    path: "Assets/Scenes/cin\xE9matique.unity"
-    guid: 0d1bef1019107bd41a2b51110d4ad89f
   - enabled: 1
     path: Assets/Scenes/Alpha V1.unity
     guid: 8b45fb2f39826f4488d7524b1d55a3e3
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 03478a5dbd7d16443a2f41e43eaef165
+  - enabled: 0
+    path: "Assets/Scenes/cin\xE9matique.unity"
+    guid: 0d1bef1019107bd41a2b51110d4ad89f
   m_configObjects: {}
