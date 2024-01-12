@@ -165,6 +165,8 @@ public class PlayerController : MonoBehaviour
             _doubleJump = true;
         }
         else if(other.transform.tag == "Health"){
+            _audioSource.clip = _powerUpSound;
+            _audioSource.Play();
             if(infoDuJoueur.hp + 10 > 100){
                 infoDuJoueur.hp = 100;
             }
@@ -175,6 +177,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.transform.tag == "Power"){
             TimerPowerUp = 5f;
+            _audioSource.clip = _powerUpSound;
+            _audioSource.Play();
             if(dmgUP == false){
                 arme.dmg += 2;
                 dmgUP = true;
@@ -190,6 +194,8 @@ public class PlayerController : MonoBehaviour
         }
         else if(other.transform.tag == "Money"){
             infoDuJoueur.adepte += 3;
+            _audioSource.clip = _powerUpSound;
+            _audioSource.Play();
             Destroy(other.gameObject);
         }
         else if(other.transform.tag == "Ennemi" && Invincible == false){
@@ -197,10 +203,6 @@ public class PlayerController : MonoBehaviour
             Invincible = true;
             ActiveSang();
             timerDegat = 3f;
-        }
-        else if(other.transform.tag == "Power" || other.transform.tag == "Money" || other.transform.tag == "Health"){  
-            _audioSource.clip = _powerUpSound;
-            _audioSource.Play();
         }
         /*else if(other.transform.tag == "Savon"){
             if(_mainvide == true){

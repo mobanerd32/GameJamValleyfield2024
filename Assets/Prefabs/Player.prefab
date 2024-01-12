@@ -372,8 +372,8 @@ MonoBehaviour:
   arme: {fileID: 7176063947834524290}
   _vitesse: 5
   _forceSaut: 5
-  _delaiBruitPasMarche: 1
-  _delaiBruitPasCourse: 1
+  _delaiBruitPasMarche: 0.5
+  _delaiBruitPasCourse: 0.3
   _listeBruitsPas:
   - {fileID: 8300000, guid: d479141bd353de44dbc29e35c9dd04d3, type: 3}
   - {fileID: 8300000, guid: 351d158db08e5ce43badce525ea40f43, type: 3}

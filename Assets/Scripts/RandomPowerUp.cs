@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomPowerUp : MonoBehaviour
 {
     
-    [SerializeField] public GameObject[] listePowerUp;
+    [SerializeField] private GameObject[] listePowerUp;
     
     GameObject thingOverRoad;
 

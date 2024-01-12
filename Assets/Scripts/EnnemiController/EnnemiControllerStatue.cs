@@ -14,12 +14,16 @@ public class EnnemiControllerStatue : MonoBehaviour
 
     [SerializeField] private Animator animEnnemi;
 
+    [SerializeField] private EnnemiGenerator generator;
+
     // Start is called before the first frame update
     void Start()
     {
         _laCible = GameObject.Find("Statue");
 
         animEnnemi = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class EnnemiControllerStatue : MonoBehaviour
             hp-= other.GetComponent<Weapon>().dmg;
             animEnnemi.SetTrigger("dmg");
             if(hp <= 0){
+                generator.EnnemiEnVie--;
                 this.gameObject.SetActive(false);
             }
         }

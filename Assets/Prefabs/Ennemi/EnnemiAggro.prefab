@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalScale.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5998745
+      value: 0.25505674
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -164,6 +164,8 @@ MonoBehaviour:
   - {fileID: 0}
   hp: 3
   TimerDegatReset: 5
+  animEnnemi: {fileID: 0}
+  generator: {fileID: 0}
 --- !u!54 &1119738156548979892
 Rigidbody:
   m_ObjectHideFlags: 0

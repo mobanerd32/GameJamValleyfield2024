@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatueRequin
       objectReference: {fileID: 0}
+    - target: {fileID: 9068676428276569738, guid: 9e50fbddc4676d840b116b8de6bec40c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -943,6 +947,55 @@ Transform:
   - {fileID: 109398824}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &277417350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 277417352}
+  - component: {fileID: 277417351}
+  m_Layer: 0
+  m_Name: PowerUP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &277417351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277417350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f011353dbfd4d6745915b0783032285e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listePowerUp:
+  - {fileID: 2564295131861183995, guid: 117a6faa2d992c7478ebd9f3e31cd6ca, type: 3}
+  - {fileID: 7742860166183929393, guid: 0ad52ffea1de81042a824bb96fafa1cf, type: 3}
+  - {fileID: 3388339047211416128, guid: e945d9022403f0a459c9b54b675ed6ab, type: 3}
+  TempsTimer: 20
+--- !u!4 &277417352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277417350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &293291106
 PrefabInstance:
@@ -3864,6 +3917,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4442132346045644, guid: 5acaaa64b500f434fb87154d5bb2820e, type: 3}
   m_PrefabInstance: {fileID: 1678857509}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1698230114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1698230115}
+  - component: {fileID: 1698230116}
+  m_Layer: 0
+  m_Name: GestionDebutGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1698230115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698230114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -152.18742, y: -95.585045, z: -74.98596}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698230116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698230114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab7521e0159ac8419de6993452df3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listeStatue:
+  - {fileID: 6880592011963498250, guid: 21f6744c901d90c4099a6f162b3e43e0, type: 3}
+  - {fileID: 6458761545667146974, guid: 79ea9251798716c40a883609fdef7b6f, type: 3}
+  - {fileID: 9068676428276569738, guid: 9e50fbddc4676d840b116b8de6bec40c, type: 3}
+  Clan: {fileID: 11400000, guid: 48ae890318c24714f880eea65d88e199, type: 2}
 --- !u!1001 &1702636044
 PrefabInstance:
   m_ObjectHideFlags: 0

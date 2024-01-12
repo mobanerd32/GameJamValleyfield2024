@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class changedescene1 : MonoBehaviour
+public class GestionClan : MonoBehaviour
 {
+
+    [SerializeField] private NomClan clan;
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    public void StartScene() 
-    {
-        SceneManager.LoadScene("UI-choix");
-    }
-
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void StartClan(string nomClan){
+        clan.nom = "nomclan";
+        SceneManager.LoadScene("Alpha V1");
     }
 }

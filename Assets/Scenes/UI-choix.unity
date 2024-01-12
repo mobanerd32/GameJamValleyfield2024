@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1145,7 +1145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1137135332}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1217279940}
+        m_TargetAssemblyTypeName: GestionClan, Assembly-CSharp
+        m_MethodName: StartClan
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Requin
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1137135332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,7 +1279,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1191160472}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1217279940}
+        m_TargetAssemblyTypeName: GestionClan, Assembly-CSharp
+        m_MethodName: StartClan
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Renard
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1191160472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1330,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191160469}
   m_CullTransparentMesh: 1
+--- !u!1 &1217279939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1217279941}
+  - component: {fileID: 1217279940}
+  m_Layer: 0
+  m_Name: GestionClan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1217279940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217279939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a7fbc5cb6d4bf478db9814464c4f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clan: {fileID: 11400000, guid: 48ae890318c24714f880eea65d88e199, type: 2}
+--- !u!4 &1217279941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217279939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 864.3885, y: 279.82077, z: -461.15717}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322687802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,7 +1890,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2062478938}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1217279940}
+        m_TargetAssemblyTypeName: GestionClan, Assembly-CSharp
+        m_MethodName: StartClan
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Corbeau
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2062478938
 MonoBehaviour:
   m_ObjectHideFlags: 0

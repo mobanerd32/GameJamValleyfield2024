@@ -23,6 +23,8 @@ public class EnnemiControllerAggro : MonoBehaviour
 
     [SerializeField] private Animator animEnnemi;
 
+    [SerializeField] private EnnemiGenerator generator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class EnnemiControllerAggro : MonoBehaviour
         _laCible = listeDeCible[1];
 
         animEnnemi = GetComponent<Animator>();
+
+        
     }
 
     // Update is called once per frame
@@ -62,6 +66,7 @@ public class EnnemiControllerAggro : MonoBehaviour
             animEnnemi.SetTrigger("dmg");
             ActiveAggroJoueur();
             if(hp <= 0){
+                generator.EnnemiEnVie--;
                 this.gameObject.SetActive(false);
             }
         }

@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalScale.x
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6851177
+      value: 0.16981351
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalPosition.z
@@ -160,6 +160,8 @@ MonoBehaviour:
   _laCible: {fileID: 0}
   _agent: {fileID: 6826561115620225683}
   hp: 3
+  animEnnemi: {fileID: 0}
+  generator: {fileID: 0}
 --- !u!54 &6025558939408978737
 Rigidbody:
   m_ObjectHideFlags: 0
