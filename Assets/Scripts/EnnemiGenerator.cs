@@ -63,7 +63,7 @@ public class EnnemiGenerator : MonoBehaviour
         int rnd = Random.Range(0,listeEnnemi.Length);
 
         //update the x & z values depending on the specific boundaries of your scene
-        Vector3 randomPosition = new Vector3(Random.Range(-50, 50), 0.8f, Random.Range(-50, 50));
+        Vector3 randomPosition = new Vector3(Random.Range(-40, 40), 0.8f, Random.Range(-40, 40));
  
         //update the y value depending on how much you want the thing to randomly rotate
         Quaternion Rotation = Quaternion.Euler(0, 0, 0);

@@ -35,7 +35,7 @@ public class EnnemiControllerAggro : MonoBehaviour
 
         animEnnemi = GetComponent<Animator>();
 
-        
+        generator = GameObject.Find("EnnemiGenerator").GetComponent<EnnemiGenerator>();
     }
 
     // Update is called once per frame

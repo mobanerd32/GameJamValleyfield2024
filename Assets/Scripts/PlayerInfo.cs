@@ -18,7 +18,8 @@ public class PlayerInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hp = 100;
+        adepte = 0;
     }
 
     // Update is called once per frame

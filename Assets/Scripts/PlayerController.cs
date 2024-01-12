@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -82,6 +83,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject PannelUpgrade;
 
     [SerializeField] private TMP_Text nbAdepte;
+
+    [SerializeField] private GameObject TextInteract;
+
+    [SerializeField] private GameObject particleSystem;
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -203,6 +208,9 @@ public class PlayerController : MonoBehaviour
             Invincible = true;
             ActiveSang();
             timerDegat = 3f;
+            if(infoDuJoueur.hp <= 0){
+                SceneManager.LoadScene("GameOver");
+            }
         }
         /*else if(other.transform.tag == "Savon"){
             if(_mainvide == true){
@@ -340,7 +348,6 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
     void OnFire(InputValue value){
          _ArmeAnimator.SetTrigger("Attaque");
          int randomIndex = Random.Range(0, _listeBruitsSwing.Length);
@@ -406,6 +413,12 @@ public class PlayerController : MonoBehaviour
             }
             
             nbAdepte.text = "Nombre D'adepte : " + infoDuJoueur.adepte;
+        }
+    }
+
+    void OnInteract(){
+        if(TextInteract.activeInHierarchy == true){
+            particleSystem.SetActive(true);
         }
     }
 

@@ -7,13 +7,16 @@ public class StatueUpgrade : MonoBehaviour
 {
 
     [SerializeField] private GameObject[] listeLVL;
-    private int lvl = 0;
+
+    private int lvl;
 
     [SerializeField] private Barricade[] listeBarricade;
 
     [SerializeField] private PlayerInfo infoDuJoueur;
 
     [SerializeField] private TMP_Text nbAdepte;
+
+    [SerializeField] private GameObject TextInteract;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,8 @@ public class StatueUpgrade : MonoBehaviour
         }
         listeLVL[0].SetActive(true);
         transform.position = new Vector3(0,0,0);
+
+        lvl = 0;
     }
 
     // Update is called once per frame
@@ -52,5 +57,23 @@ public class StatueUpgrade : MonoBehaviour
             nbAdepte.text = "Nombre D'adepte : " + infoDuJoueur.adepte;
         }
         
+    }
+
+    /// <summary>
+    /// OnTriggerEnter is called when the Collider other enters the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
+    private void OnTriggerEnter(Collider other)
+    {
+        TextInteract.SetActive(true);
+    }
+
+    /// <summary>
+    /// OnTriggerExit is called when the Collider other has stopped touching the trigger.
+    /// </summary>
+    /// <param name="other">The other Collider involved in this collision.</param>
+    private void OnTriggerExit(Collider other)
+    {
+        TextInteract.SetActive(true);
     }
 }
