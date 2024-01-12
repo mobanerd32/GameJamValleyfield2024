@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     public int minAngle = -90;
     [Range(30, 90)]
     public int maxAngle = 45;
-    [Range(10, 100)]
+    [Range(0, 100)]
     [SerializeField] private float _sensibiliteSouris;
 
     [SerializeField]  private Animator _ArmeAnimator;
@@ -88,6 +88,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject TextInteract;
 
     [SerializeField] private GameObject particleSystem;
+
+    private float TimerParticle;
 
     [SerializeField] private GameObject PanelPause;
 
@@ -122,6 +124,13 @@ public class PlayerController : MonoBehaviour
             if(timerDegat <= 0){
                 Invincible = false;
                 desactiveSang();
+            }
+        }
+
+        if(particleSystem.activeInHierarchy == true){
+            TimerParticle -= Time.deltaTime;
+            if(TimerParticle <= 0){
+                particleSystem.SetActive(false);
             }
         }
     }
@@ -275,27 +284,30 @@ public class PlayerController : MonoBehaviour
 
     void OnLook(InputValue value)
     {
+        if(PanelPause.activeInHierarchy == false && PannelUpgrade.activeInHierarchy == false){
+            Vector2 delta = value.Get<Vector2>();
+
+            //Calcul la quantité de rotation à effectuer dans l'axe X et Y selon la sensibilité de la souris
+            _deltaRotationY = delta.x * _sensibiliteSouris * Time.fixedDeltaTime;
+            _deltaRotationX = delta.y * _sensibiliteSouris * Time.fixedDeltaTime;
+
+            //Récupère l'orientation local du joueur
+            Vector3 currentRotation = transform.localRotation.eulerAngles;
+        
+            //Convertir une rotation de 0 à 360 degrés vers -180 à 180 degrés
+            float rotationX = convertirRotationEn180Degres(currentRotation.x - _deltaRotationX);
+
+            //On limite la rotation entre degr.s afin d'.viter de faire un tour complet haut/bas
+            rotationX = Mathf.Clamp(rotationX, minAngle, maxAngle);
+        
+            //Calcul la nouvelle rotation dans l'axe Y
+            float rotationY = currentRotation.y + _deltaRotationY;
+
+            //On applique la rotation X et Y au composent transform de l'objet où se trouve ce script
+            transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
+        }
         //Delta représente la quantité de mouvement de la souris dans les deux axe (X et Y) depuis la dernière lecture
-        Vector2 delta = value.Get<Vector2>();
-
-        //Calcul la quantité de rotation à effectuer dans l'axe X et Y selon la sensibilité de la souris
-        _deltaRotationY = delta.x * _sensibiliteSouris * Time.fixedDeltaTime;
-        _deltaRotationX = delta.y * _sensibiliteSouris * Time.fixedDeltaTime;
-
-        //Récupère l'orientation local du joueur
-        Vector3 currentRotation = transform.localRotation.eulerAngles;
         
-        //Convertir une rotation de 0 à 360 degrés vers -180 à 180 degrés
-        float rotationX = convertirRotationEn180Degres(currentRotation.x - _deltaRotationX);
-
-        //On limite la rotation entre degr.s afin d'.viter de faire un tour complet haut/bas
-        rotationX = Mathf.Clamp(rotationX, minAngle, maxAngle);
-        
-        //Calcul la nouvelle rotation dans l'axe Y
-        float rotationY = currentRotation.y + _deltaRotationY;
-
-        //On applique la rotation X et Y au composent transform de l'objet où se trouve ce script
-        transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0f);
     }
 
     private float convertirRotationEn180Degres(float valeurRotation)
@@ -354,10 +366,12 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnFire(InputValue value){
-         _ArmeAnimator.SetTrigger("Attaque");
-         int randomIndex = Random.Range(0, _listeBruitsSwing.Length);
-         _audioSource.clip = _listeBruitsSwing[randomIndex];
-         _audioSource.Play();
+        if(PanelPause.activeInHierarchy == false && PannelUpgrade.activeInHierarchy == false){
+            _ArmeAnimator.SetTrigger("Attaque");
+            int randomIndex = Random.Range(0, _listeBruitsSwing.Length);
+            _audioSource.clip = _listeBruitsSwing[randomIndex];
+            _audioSource.Play();
+        }
     }
 
     void OnBlock(InputValue value){
@@ -424,6 +438,7 @@ public class PlayerController : MonoBehaviour
     void OnInteract(){
         if(TextInteract.activeInHierarchy == true){
             particleSystem.SetActive(true);
+            TimerParticle = 3f;
         }
     }
 
@@ -431,12 +446,14 @@ public class PlayerController : MonoBehaviour
         PanelPause.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        _sensibiliteSouris = 0;
     }
 
     public void Unpause(){
         PanelPause.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _sensibiliteSouris = 25;
     }
 
 }

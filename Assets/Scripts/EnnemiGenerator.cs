@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnnemiGenerator : MonoBehaviour
 {
@@ -26,12 +27,18 @@ public class EnnemiGenerator : MonoBehaviour
     public int EnnemiEnVie;
 
     private int EnnemiSpawnedNum;
+
+    [SerializeField] private AudioSource MusiqueFight;
+
+    [SerializeField] private TMP_Text textWave;
+    [SerializeField] private TMP_Text textEnnemi;
     // Start is called before the first frame update
     void Start()
     {
         TimerBetweenWave = TempsEntreVague;
         WaveNum = 0;
         SpawnEnnemi();
+        MusiqueFight.Play();
     }
 
     // Update is called once per frame
@@ -49,21 +56,27 @@ public class EnnemiGenerator : MonoBehaviour
             if (TempsEntreVague <= 0f)
             {
                 WaveStart = true;
+                SpawnEnnemi();
+                EnnemiEnVie++;
+                MusiqueFight.Play();
             }
         }
-
-        if(EnnemiEnVie <= 0){
+        else if(EnnemiEnVie <= 0 && WaveStart == true){
             TimerBetweenWave = TempsEntreVague;
             WaveStart = false;
-            WaveNum++;
+            MusiqueFight.Stop();
+            WaveNum+=1;
         }
+
+        textWave.text = "Vague : " + (WaveNum + 1);
+        textEnnemi.text = "Ennemis en vie : " + EnnemiEnVie;
     }
 
     private void SpawnEnnemi(){
         int rnd = Random.Range(0,listeEnnemi.Length);
 
         //update the x & z values depending on the specific boundaries of your scene
-        Vector3 randomPosition = new Vector3(Random.Range(-40, 40), 0.8f, Random.Range(-40, 40));
+        Vector3 randomPosition = new Vector3(Random.Range(-40, 40), 4f, Random.Range(-40, 40));
  
         //update the y value depending on how much you want the thing to randomly rotate
         Quaternion Rotation = Quaternion.Euler(0, 0, 0);

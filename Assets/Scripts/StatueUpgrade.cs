@@ -26,7 +26,7 @@ public class StatueUpgrade : MonoBehaviour
             lvl.SetActive(false);
         }
         listeLVL[0].SetActive(true);
-        transform.position = new Vector3(0,0,0);
+        transform.position = new Vector3(0,1,0);
 
         lvl = 0;
     }
