@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0c0ad68b91ef15c4892d1102a9ce3e30, type: 3}
       propertyPath: m_LocalScale.x
@@ -163,6 +163,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   hp: 3
+  animEnnemi: {fileID: 0}
 --- !u!54 &7395289003618167095
 Rigidbody:
   m_ObjectHideFlags: 0

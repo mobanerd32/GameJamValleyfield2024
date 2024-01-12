@@ -44,6 +44,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _delaiBruitPasCourse = 1.0f;
     private float _compteurDeTempsBruitsPas = 0.0f;
 
+    [SerializeField] private AudioClip[] _listeBruitsPas;
+    [SerializeField] private AudioClip _sonSaut;
+
+    [SerializeField] private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip _powerUpSound;
+
+    [SerializeField] private AudioClip[] _listeBruitsSwing;
+
 
     [Range(-90, -15)]
     public int minAngle = -90;
@@ -78,7 +87,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
        _rb = GetComponent<Rigidbody>();
-       //_audioSource = GetComponent<AudioSource>();
+       _audioSource = GetComponent<AudioSource>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -189,6 +198,10 @@ public class PlayerController : MonoBehaviour
             ActiveSang();
             timerDegat = 3f;
         }
+        else if(other.transform.tag == "Power" || other.transform.tag == "Money" || other.transform.tag == "Health"){  
+            _audioSource.clip = _powerUpSound;
+            _audioSource.Play();
+        }
         /*else if(other.transform.tag == "Savon"){
             if(_mainvide == true){
                 other.gameObject.SetActive(false);
@@ -197,15 +210,7 @@ public class PlayerController : MonoBehaviour
                 _CollecteSavon.Play();
             } 
         }*/
-        /*else if(other.transform.tag == "Canard" && !_mainvide && other.gameObject.GetComponent<Canard>().EstHuile == true){  
-            _CanardAnimator = other.gameObject.GetComponent<Animator>();
-            _CanardAnimator.SetBool("Commencer Huile",true);
-            _SavonDansMain.SetActive(false);
-            _mainvide = true;
-            other.gameObject.GetComponent<Canard>().EstHuile = false;
-            _audioSource.clip = _LaverCanard;
-            _audioSource.Play();
-        }*/
+        
     }
     
     void OnRun(InputValue value)
@@ -240,10 +245,10 @@ public class PlayerController : MonoBehaviour
         if (_mouvementHorizontal != 0 || _mouvementAvant != 0)
         {
             //Si le personnage est au sol
-            /*if (_isGrounded)
+            if (_isGrounded)
             {
                 JouerBruitsDePas();
-            }*/
+            }
         }
 
         
@@ -300,7 +305,7 @@ public class PlayerController : MonoBehaviour
         SangEffet.SetActive(false);
     }
 
-    /*void JouerBruitsDePas()
+    void JouerBruitsDePas()
     {
         // Incrémenter le compteur de temps
         _compteurDeTempsBruitsPas += Time.deltaTime;
@@ -331,11 +336,14 @@ public class PlayerController : MonoBehaviour
         }
 
         
-    }*/
+    }
 
 
     void OnFire(InputValue value){
          _ArmeAnimator.SetTrigger("Attaque");
+         int randomIndex = Random.Range(0, _listeBruitsSwing.Length);
+         _audioSource.clip = _listeBruitsSwing[randomIndex];
+         _audioSource.Play();
     }
 
     void OnBlock(InputValue value){

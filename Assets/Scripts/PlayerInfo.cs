@@ -13,7 +13,7 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] private TMP_Text hpText;
     public bool ResistanceStatus;
 
-
+    public string clan;
 
     // Start is called before the first frame update
     void Start()

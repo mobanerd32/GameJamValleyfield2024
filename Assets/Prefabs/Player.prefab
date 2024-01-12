@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 4858452209885521946}
   - {fileID: 3756814270378397388}
-  - {fileID: 7912711265505949055}
+  - {fileID: 7657563598676021910}
   m_Father: {fileID: 799772864477014612}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 1583664034309308405}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -374,6 +374,20 @@ MonoBehaviour:
   _forceSaut: 5
   _delaiBruitPasMarche: 1
   _delaiBruitPasCourse: 1
+  _listeBruitsPas:
+  - {fileID: 8300000, guid: d479141bd353de44dbc29e35c9dd04d3, type: 3}
+  - {fileID: 8300000, guid: 351d158db08e5ce43badce525ea40f43, type: 3}
+  - {fileID: 8300000, guid: 5ffb4b9a8b983b94faf550fd0ea98e63, type: 3}
+  - {fileID: 8300000, guid: 1c39d84a93b7a2a499938073c4bf946b, type: 3}
+  - {fileID: 8300000, guid: c7f22d61ee8cacb4ea71609fde9af6b4, type: 3}
+  - {fileID: 8300000, guid: f748b55eda1899e429a4d0746cb4a0ab, type: 3}
+  _sonSaut: {fileID: 8300000, guid: cae53b6d7a4335f48a6387b2bbe82319, type: 3}
+  _audioSource: {fileID: 0}
+  _powerUpSound: {fileID: 8300000, guid: adb4ada310ecc54409c445ea01255e4b, type: 3}
+  _listeBruitsSwing:
+  - {fileID: 8300000, guid: 6649fc1239434644eb4adae5ee51696a, type: 3}
+  - {fileID: 8300000, guid: afb5de4eb82ff2c4bb2509aee70f1847, type: 3}
+  - {fileID: 8300000, guid: 68cce4ff1747e2946bfb78f77a5663a5, type: 3}
   minAngle: -45
   maxAngle: 45
   _sensibiliteSouris: 24.8
@@ -383,7 +397,9 @@ MonoBehaviour:
   WeaponSkin:
   - {fileID: 5199230018307256992}
   - {fileID: 4569238273393005686}
-  - {fileID: 7912711265505949054}
+  - {fileID: 6993792430197409836}
+  PannelUpgrade: {fileID: 0}
+  nbAdepte: {fileID: 0}
 --- !u!82 &5477919717764909760
 AudioSource:
   m_ObjectHideFlags: 0
@@ -497,6 +513,7 @@ MonoBehaviour:
   adepteCounter: {fileID: 0}
   hpText: {fileID: 0}
   ResistanceStatus: 0
+  clan: 
 --- !u!1001 &3722326048847210791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -736,12 +753,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0981e16dd1c99fe49acce4e9da1707ba, type: 3}
---- !u!1 &7912711265505949054 stripped
+--- !u!1 &6993792430197409836 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0981e16dd1c99fe49acce4e9da1707ba, type: 3}
   m_PrefabInstance: {fileID: 7912711265505949053}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &7912711265505949055 stripped
+--- !u!4 &7657563598676021910 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0981e16dd1c99fe49acce4e9da1707ba, type: 3}
   m_PrefabInstance: {fileID: 7912711265505949053}

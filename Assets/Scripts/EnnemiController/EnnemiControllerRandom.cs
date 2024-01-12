@@ -15,6 +15,8 @@ public class EnnemiControllerRandom : MonoBehaviour
 
     [SerializeField] private int hp;
 
+    [SerializeField] private Animator animEnnemi;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class EnnemiControllerRandom : MonoBehaviour
         listeDeCible[1] = GameObject.Find("Statue");
 
         ChoisirCible();
+
+        animEnnemi = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class EnnemiControllerRandom : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(other.transform.tag == "Arme"){
             hp-= other.GetComponent<Weapon>().dmg;
+            animEnnemi.SetTrigger("dmg");
             if(hp <= 0){
                 this.gameObject.SetActive(false);
             }
