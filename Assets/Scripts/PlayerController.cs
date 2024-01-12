@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -68,6 +69,10 @@ public class PlayerController : MonoBehaviour
     private int Weaponlvl = 0;
 
     [SerializeField] private GameObject[] WeaponSkin;
+
+    [SerializeField] private GameObject PannelUpgrade;
+
+    [SerializeField] private TMP_Text nbAdepte;
 
     //Le start est appellé seulement eu tout début, parfait pour récupérer les rigidbody de nos objet
     void Start()
@@ -355,21 +360,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnUpgrade(){
-        Statue.Upgrade();
-    }
-
-    void OnRepair(){
-        Statue.RepairAll();
-    }
-
     public void UpgradeWeapon(){
-        if(Weaponlvl<2){
+        if(Weaponlvl<2 && infoDuJoueur.adepte >= 15){
+            infoDuJoueur.adepte -= 15;
             WeaponSkin[Weaponlvl].SetActive(false);
             WeaponSkin[Weaponlvl + 1].SetActive(true);
             Weaponlvl++;
             arme.dmg++;
+            nbAdepte.text = "Nombre D'adepte : " + infoDuJoueur.adepte;
         } 
+    }
+
+    void OnUpgrade(){
+        if(PannelUpgrade.activeInHierarchy == false){
+            PannelUpgrade.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            nbAdepte.text = "Nombre D'adepte : " + infoDuJoueur.adepte;
+        }
+        else{
+            PannelUpgrade.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
+    public void Guerir(){
+        if(infoDuJoueur.adepte >= 5 && infoDuJoueur.hp != 100){
+            infoDuJoueur.adepte -= 5;
+            if(infoDuJoueur.hp + 20 >= 100){
+                infoDuJoueur.hp = 100;
+            }
+            else{
+                infoDuJoueur.hp += 20;
+            }
+            
+            nbAdepte.text = "Nombre D'adepte : " + infoDuJoueur.adepte;
+        }
     }
 
 }
